@@ -1,0 +1,55 @@
+.row {
+  //what max-width means is if we have enough available space, then it will have the width that is specified (in this case 1140px) but if there is not enough space (ie if the viewport is smaller than 1140px in this case) then it will simply fill 100% of the available space.
+  max-width: $grid-width;
+  background-color: #eee;
+  //to center a block element inside of another block element:
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    //without ":not" it would only select last-child but addition of ":not" let's us select EVERYTHING EXCEPT LAST CHILD (i.e in this case only last-row doesn't have margin-bottom
+    margin-bottom: $gutter-vertical;
+  }
+
+  @include clearfix;
+  [class^="col-"] {
+    //attribute selector: [attribute name] eg. [src]
+    // [class^="col-"]: "^" means that we want the begining what we set here overall meaning becomes IT WILL SELECTS ALL THE ELEMENTS IN WHICH THE CLASS ATTRIBUTE STARTS WITH col-
+    background-color: orangered;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizental;
+    }
+  }
+
+  .col-1-of-2 {
+    //if we want to use sass variable with calc, we need to wrap variable around #{}
+    width: calc((100% - #{$gutter-horizental}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - 2 * #{$gutter-horizental}) / 3);
+  }
+
+  .col-2-of-3 {
+    width: calc(
+      2 * ((100% - 2 * #{$gutter-horizental}) / 3) + #{$gutter-horizental}
+    );
+  }
+
+  .col-1-of-4 {
+    width: calc((100% - 3 * #{$gutter-horizental}) / 4);
+  }
+
+  .col-2-of-4 {
+    width: calc(
+      2 * ((100% - 3 * #{$gutter-horizental}) / 4) + #{$gutter-horizental}
+    );
+  }
+
+  .col-3-of-4 {
+    width: calc(
+      3 * ((100% - 3 * #{$gutter-horizental}) / 4) + 2 * #{$gutter-horizental}
+    );
+  }
+}
