@@ -1,0 +1,15 @@
+.u-center-text {
+  // centers the text that is inside of it
+  text-align: center;
+  // when we set parent of inline block element to text-align: center;, this element is treated like text and is centered
+}
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem;
+}
+.u-margin-bottom-medium {
+  margin-bottom: 4rem;
+}
+.u-margin-bottom-big {
+  margin-bottom: 8rem;
+}
