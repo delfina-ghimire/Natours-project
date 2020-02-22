@@ -41,6 +41,15 @@
     }
   }
 
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
   &::after {
     /* (1)after pseudo element adds like a virtual element right after element we are selecting & let's us style that element.
     (2) ::after is treated like child of element it is specified to*/
