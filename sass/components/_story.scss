@@ -1,0 +1,71 @@
+.story {
+  width: 75%;
+  margin: 0 auto; //to center block element inside of block element
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: $color-white;
+  border-radius: 3px;
+  padding: 6rem;
+  //to make up for the padding occupied by translated box we add 3rem padding to the left
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  &__shape {
+    height: 15rem;
+    width: 15rem;
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    /*shape outside property lets us wrap text around element in same shape.
+    we give a vectorize shape as a value of "shape-outside:" property
+    In order for this to work the element must be floated, and must posses defined dimentions i.e width and height
+    supported in safari only after -webkit- prefix
+    */
+    shape-outside: circle(
+      50% at 50% 50%
+    ); //circle(radius (in this case diameter is 15rem) at (position i.e center in this case)
+    //shape defination for the element itself
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    //best way to create space between floated element is rather not to mess with margin but to use transform
+    transform: translateX(-3rem) skewX(12deg);
+    position: relative;
+  }
+
+  &__img {
+    //for responsive web design we should always define  width of the object
+    height: 100%;
+    transform: translateX(-4rem) scale(1.4); //scale(%)
+    backface-visibility: hidden; //when something weird happens concerning to animations use this property
+    transition: all 0.5s;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden;
+  }
+
+  //as soon as story is hovered we want to change the caption
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  //when we hover the story we want something happened to image
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+}
