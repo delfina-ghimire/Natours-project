@@ -214,6 +214,26 @@ that make our world better and future oppurtunities.
       </section>
       
       <section class="section-stories">
+        <!--
+          ADDING BACKGROUND VIDEO:
+          steps:
+          1. add a container div same size as the section.
+          2. add video content to the contanier
+        -->
+        <div class="bg-video">
+          <!--
+            VIDEO ELEMENT WORK:
+            1. add <video> element without source attribute
+            2. add autoplay muted and loop commands to background video
+            3. add <source> tag inside of video element which allows us to embedd video file
+            4. we can point src attribute of <source> element to our video source and then specify "type" attribut to "video/videoFormat"
+          -->
+          <video class="bg-video__content" autoplay muted loop>
+            <source src="img/video.mp4" type="video/mp4">
+            <source src="img/video.webm" type="video/webm">
+              Video isn't supported in your browser!
+          </video>
+        </div>
         <div class="u-center-text u-margin-bottom-big">
           <h2 class="heading-secondary">
             WE make people genuinely happy

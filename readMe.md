@@ -81,3 +81,9 @@ pseudo classes:
 how css works behind the scenes i.e how CSS is processed in browser
 building custom grid
 Advanced Selectors
+
+## Resources
+
+#### Stock footages
+
+[coverr] {https://coverr.co/}
