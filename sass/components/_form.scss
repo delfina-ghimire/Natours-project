@@ -15,6 +15,7 @@
     border-bottom: 0.3rem solid transparent;
     width: 90%;
     display: block;
+    transition: all 0.3s;
 
     &::-webkit-input-placeholder {
       color: color-grey-dark-2;
@@ -52,5 +53,54 @@
     opacity: 0; //because we can't animate visibility
     visibility: hidden; //it's gone from the page
     transform: translateY(-4rem);
+  }
+
+  &__radio-group {
+    width: 49%;
+    display: inline-block; //to put them side by side
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__radio-label {
+    font-size: $default-font-size;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    padding-left: 5rem;
+  }
+
+  &__radio-button {
+    //2D Circle
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: -0.1rem;
+    top: -0.4rem;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1.3rem;
+      width: 1.3rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $color-primary;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+  }
+  //as soon as we hit the input element, the radio-input becomes checked, then we select the sibling of that one, and then the child because thats the want we want to change in it's after form
+  &__radio-input:checked ~ &__radio-label &__radio-button::after {
+    opacity: 1;
   }
 }
