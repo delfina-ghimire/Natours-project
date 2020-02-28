@@ -16,6 +16,36 @@
     <title>Natours | Exciting tours for adventurous people</title>
   </head>
   <body>
+    <!--
+        for navigation we use following 3 steps:
+        1. have a checkbox which will be hidden later
+        2. have a label connected to checkbox which is where we click
+        3. reveal the navigation as soon as checkbox is checked
+      -->
+    <div class="navigation">
+      <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+      <label for="navi-toggle" class="navigation__button">MENU</label>
+      <div class="navigation__background"> &nbsp; </div>
+      <nav class="navigation__nav">
+        <ul class="navigation__list">
+          <li class="navigation__item">
+            <a href="#" class="navigation__link"><span>01</span>About Natours</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#" class="navigation__link"><span>02</span>Your Benefits</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#" class="navigation__link"><span>03</span>Popular Tours</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#" class="navigation__link"><span>04</span>Stories</a>
+          </li>
+          <li class="navigation__item">
+            <a href="#" class="navigation__link"><span>05</span>Book Now</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
     <header class="header">
       <div class="header__logo-box">
         <img src="img/logo-white.png" alt="Logo" class="header__logo" />
@@ -30,6 +60,7 @@
         <!--/Button-->
       </div>
     </header>
+   
     <main>
       <section class="section-about">
         <div class="u-center-text u-margin-bottom-big">
