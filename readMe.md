@@ -87,3 +87,13 @@ Advanced Selectors
 #### Stock footages
 
 [coverr] {https://coverr.co/}
+
+#### Fonts
+
+[Linea] {http://linea.io/}
+
+#### Custom animations
+
+[Easing] {https://easings.net/en}
+
+[Cubic-Bezier] {https://cubic-bezier.com}
