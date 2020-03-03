@@ -97,3 +97,13 @@ Advanced Selectors
 [Easing] {https://easings.net/en}
 
 [Cubic-Bezier] {https://cubic-bezier.com}
+
+## RESPONSIVE DESIGN
+
+Making website acessible for every user across any device platform.
+
+### Mobile first vs Desktop first and Breakpoints
+
+In _desktop first_ approach we optimize our website for large screen, and later we only write media queries to shrink the designs to fit the smaller screens. We can achieve this by writing media query test for _max-width_.
+
+In case of _Mobile-first_ appraoch we start with witing CSS for mobile devices: small screens then using media query to expand design to large desktop screen. We can achieve this by writing media query test for _min-width_. This approach forces us developers to reduce websites and apps to the absolute essentials strpping away from unecessary contents in order to end up with a smaller and faster product.
