@@ -1,0 +1,152 @@
+.navigation {
+  &__checkbox {
+    display: none;
+  }
+  &__button {
+    background-color: $color-white;
+    height: 7rem; //we are using 7rem to completely cover green circle behind it
+    width: 7rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 6rem; //because our button is is 1rem wider and higher than the background that's why it's half rem further to the right and top; this half covers 1 difference between the size of the background and the button
+    right: 6rem;
+    z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+    text-align: center;
+    cursor: pointer;
+  }
+  &__background {
+    //background is a circle expanding from upper right corner, so first we need a circle behind our nav-icon on upper-right corner
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+    background-image: radial-gradient(
+      $color-primary-light,
+      $color-primary-dark
+    );
+    z-index: 1000; //Z only works on element which has it's position already defined
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    /*transform: scale(
+      80
+    );*/ //as soon as we click, we want this background to scale expanding whole screen
+  }
+  &__nav {
+    //this is huge div covering entire screen where we center list element both horizentally and vertically
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500; // higher than all element except button
+    opacity: 0; //to make navigation invisible
+    width: 0; //to get links out of screen
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  &__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+    width: 100%;
+  }
+  &__item {
+    margin: 1rem;
+  }
+  &__link {
+    &,
+    &:link,
+    &:visited {
+      display: inline-block; //to apply padding and translate
+      font-size: 3rem;
+      font-weight: 300;
+      color: $color-white;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 1rem 2rem;
+      //SOLID COLOR GRADIENT
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $color-white 50%
+      );
+      background-size: 225%; //if we increase size up from 100%, we can see the bg expands and zooms in and in case of solid color gradient we see that it zooms to color specified at 0 - 50%. We can get that transition effect by shifting entire thing completely to left on hover
+      transition: all 0.4s;
+
+      span {
+        margin-right: 1.5rem;
+        display: inline-block;
+      }
+    }
+    &:hover,
+    &:active {
+      background-position: 100%; //as we hover, the background basically shifts to the left side bacause the position is now at 100%
+      color: $color-primary;
+      transform: translateX(1rem);
+    }
+  }
+  //FUNCTIONALITY
+  /*USING CHECKBOX HACK: we can use checkbox hack to bring hidden navigation (link and background back)
+  1.We hit the lable and checkbox becomes checked
+  2. We use :checked pseudoclass to bring out desired effect ie. background and links to be visible again in this case
+  */
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
+  }
+
+  //ICON
+  &__icon {
+    position: relative;
+    margin-top: 3.5rem;
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+    }
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+    &::before {
+      top: -0.8rem;
+    }
+
+    &::after {
+      top: 0.8rem;
+    }
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}
